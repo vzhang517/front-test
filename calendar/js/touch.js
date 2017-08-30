@@ -24,10 +24,6 @@ modal.style.display = "block";
 
 
 
-
-
-
-
 $("#submit").click(function(event) {
     event.preventDefault();
 
@@ -37,39 +33,35 @@ $("#submit").click(function(event) {
     var endday = $('#endday').val();
     var endtime = $('#endtime').val();
 
-var combineOne= startday+starttime;
-var combineTwo= endday+endtime;
+	var start= startday+starttime;
+	var end= endday+endtime;
 
-var start;
-var end;
+	var start;
+	var end;
 
-for (var i=0; i<IDs.length; i++){
-	if (IDs[i]==combineOne){
-		start=i;
-		
+	for (var i=0; i<IDs.length; i++){
+		if (IDs[i]==combineOne){
+			start=i;
+			
+		}
+
+	} 
+
+	for (var i=0; i<IDs.length; i++){
+		if (IDs[i]==combineTwo){
+			end=i;
+			
+		}
+
+	} 
+
+	for (var i=start; i<end; i++){
+		$(".time").eq(i).find(':checkbox').prop('checked', true);
+
 	}
 
-} 
 
-for (var i=0; i<IDs.length; i++){
-	if (IDs[i]==combineTwo){
-		end=i;
-		
-	}
-
-} 
-
-for (var i=start; i<end; i++){
-	$(".time").eq(i).find(':checkbox').prop('checked', true);
-
-}
-
-
-
-
-
-
-modal.style.display = "none";
+	modal.style.display = "none";
 })
 
 
